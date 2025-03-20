@@ -1,0 +1,13 @@
+/local-webshop/
+│
+├── index.html          # Frontend homepage
+├── script.js           # JavaScript for dynamic functionality
+├── style.css           # CSS for styling
+├── backend/            # Backend scripts
+│   ├── get_products.php
+│   ├── add_to_cart.php
+│   ├── checkout.php
+├── data/               # XML files for data storage
+│   ├── termekek.xml
+│   ├── kosar.xml
+│   ├── penztar.xml

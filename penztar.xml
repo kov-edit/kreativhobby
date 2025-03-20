@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rendelesek>
+    <rendeles>
+        <id> </id>
+        <vasarlo_neve> </vasarlo_neve>
+        <osszeg> </osszeg>
+        <arucikkek>
+            <aru>
+                <termek_id> </termek_id>
+                <mennyiseg> </mennyiseg>
+            </aru>
+        </arucikkek>
+    </rendeles>
+</rendelesek>

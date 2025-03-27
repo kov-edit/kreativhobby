@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mintakeszito.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div>
+            <p>Mintakészítő</p>
+            <div class="controls">
+                <div class="konténer">
+                    <div class="folder">
+                    <div class="front-side">
+                      <div class="tip"></div>
+                      <div class="cover"></div>
+                    </div>
+                    <div class="back-side cover"></div>
+                  </div>
+                  <label class="custom-file-upload">
+                    <input class="title" type="file" id="imageInput" accept="image/*" />
+                    Choose a file
+                  </label>
+                </div>
+                
+                <!--<input type="file" id="imageInput" accept="image/*">-->
+                <div>
+                    <label for="pixelSize">Pixel Size:</label>
+                    <input type="range" id="pixelSize" min="10" max="40" value="15">
+                    <span id="pixelSizeValue">20</span>
+                </div>
+                <div>
+                    <label for="gridOpacity">Grid Opacity:</label>
+                    <input type="range" id="gridOpacity" min="0" max="60" value="20">
+                    <span id="gridOpacityValue">30%</span>
+                </div>
+                <button id="processBtn">Process Image</button>
+            </div>
+            
+            <canvas id="canvas"></canvas>
+            <div id="pixelatedImage"></div>
+            <button id="clearBtn">Clear Saved Image</button>
+        </div>
+        
+    </div>
+
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const imageInput = document.getElementById('imageInput');
+        const pixelSizeInput = document.getElementById('pixelSize');
+        const pixelSizeValue = document.getElementById('pixelSizeValue');
+        const gridOpacityInput = document.getElementById('gridOpacity');
+        const gridOpacityValue = document.getElementById('gridOpacityValue');
+        const processBtn = document.getElementById('processBtn');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const pixelatedImageDiv = document.getElementById('pixelatedImage');
+        
+        // Update displayed values for sliders
+        pixelSizeInput.addEventListener('input', () => {
+            pixelSizeValue.textContent = pixelSizeInput.value;
+        });
+        
+        gridOpacityInput.addEventListener('input', () => {
+            gridOpacityValue.textContent = gridOpacityInput.value + '%';
+        });
+        
+        processBtn.addEventListener('click', processImage);
+        
+        // Check for saved image on page load
+        checkForSavedImage();
+        
+        function checkForSavedImage() {
+            const savedImage = localStorage.getItem('pixelatedImage');
+            if (savedImage) {
+                const img = new Image();
+                img.onload = function() {
+                    pixelateImage(img, true);
+                };
+                img.src = savedImage;
+                
+                // Also restore the slider values if they were saved
+                const savedSettings = localStorage.getItem('pixelatorSettings');
+                if (savedSettings) {
+                    const settings = JSON.parse(savedSettings);
+                    pixelSizeInput.value = settings.pixelSize;
+                    pixelSizeValue.textContent = settings.pixelSize;
+                    gridOpacityInput.value = settings.gridOpacity;
+                    gridOpacityValue.textContent = settings.gridOpacity + '%';
+                }
+            }
+        }
+        
+        function processImage() {
+            const file = imageInput.files[0];
+            if (!file) {
+                alert('Please select an image first');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    // Save the original image to localStorage
+                    localStorage.setItem('pixelatedImage', e.target.result);
+                    
+                    // Save the current settings
+                    const settings = {
+                        pixelSize: pixelSizeInput.value,
+                        gridOpacity: gridOpacityInput.value
+                    };
+                    localStorage.setItem('pixelatorSettings', JSON.stringify(settings));
+                    
+                    pixelateImage(img);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        // Rest of your existing functions (pixelateImage, getAverageColor) remain the same
+        function pixelateImage(img, fromStorage = false) {
+            const pixelSize = parseInt(pixelSizeInput.value);
+            const gridOpacity = parseInt(gridOpacityInput.value) / 100;
+            
+            // Set canvas dimensions
+            const width = img.width;
+            const height = img.height;
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Draw original image
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            // Get image data
+            const imageData = ctx.getImageData(0, 0, width, height);
+            const data = imageData.data;
+            
+            // Clear the previous output
+            pixelatedImageDiv.innerHTML = '';
+            
+            // Calculate number of rows and columns
+            const cols = Math.ceil(width / pixelSize);
+            const rows = Math.ceil(height / pixelSize);
+            
+            // Create container for the pixelated image
+            const container = document.createElement('div');
+            container.className = 'pixel-container';
+            
+            for (let y = 0; y < rows; y++) {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'pixel-row';
+                
+                for (let x = 0; x < cols; x++) {
+                    // Calculate the average color of the pixel block
+                    const avgColor = getAverageColor(data, width, x * pixelSize, y * pixelSize, pixelSize);
+                    
+                    // Create pixel element
+                    const pixel = document.createElement('div');
+                    pixel.className = 'pixel';
+                    pixel.style.width = `${pixelSize}px`;
+                    pixel.style.height = `${pixelSize}px`;
+                    pixel.style.backgroundColor = `rgba(${avgColor.r}, ${avgColor.g}, ${avgColor.b}, ${avgColor.a})`;
+                    pixel.style.borderColor = `rgba(0, 0, 0, ${gridOpacity})`;
+                    
+                    rowDiv.appendChild(pixel);
+                }
+                
+                // Add checkbox at the end of the row
+                const checkboxContainer = document.createElement('div');
+                checkboxContainer.className = 'checkbox-container';
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `row-${y}`;
+                
+                const label = document.createElement('label');
+                label.htmlFor = `row-${y}`;
+                label.textContent = `${y + 1}`;
+                
+                checkboxContainer.appendChild(checkbox);
+                checkboxContainer.appendChild(label);
+                rowDiv.appendChild(checkboxContainer);
+                
+                container.appendChild(rowDiv);
+            }
+            
+            pixelatedImageDiv.appendChild(container);
+        }
+        
+        function getAverageColor(data, width, startX, startY, blockSize) {
+            let r = 0, g = 0, b = 0, a = 0;
+            let count = 0;
+            
+            for (let y = startY; y < startY + blockSize; y++) {
+                for (let x = startX; x < startX + blockSize; x++) {
+                    const index = (y * width + x) * 4;  //4, mert így fér bele pont a gridbe a kép
+                    
+                    // Skip if we're outside the image bounds
+                    if (index >= data.length - 3) continue;
+                    
+                    r += data[index];
+                    g += data[index + 1];
+                    b += data[index + 2];
+                    a += data[index + 3];
+                    count++;
+                }
+            }
+            
+            return {
+                r: Math.round(r / count),
+                g: Math.round(g / count),
+                b: Math.round(b / count),
+                a: a / count / 255
+            };
+        }
+
+        /*function checkedBox() {
+            for (let i = 0; i < )
+        }*/
+
+        document.getElementById('clearBtn').addEventListener('click', function() {
+            // For localStorage version:
+            localStorage.removeItem('pixelatedImage');
+            localStorage.removeItem('pixelatorSettings');
+            pixelatedImageDiv.innerHTML = '';
+            imageInput.value = '';
+                
+            // For IndexedDB version:
+            // const transaction = db.transaction(['images', 'settings'], 'readwrite');
+            // transaction.objectStore('images').delete(1);
+            // transaction.objectStore('settings').delete(1);
+            // pixelatedImageDiv.innerHTML = '';
+            // imageInput.value = '';
+        });
+    });
+
+        
+    </script>
+</body>
+</html>

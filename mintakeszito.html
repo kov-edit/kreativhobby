@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         
-        <div>
+        
             <p>Mintakészítő</p>
             <div class="controls">
                 <div class="konténer">
@@ -42,8 +42,9 @@
             
             <canvas id="canvas"></canvas>
             <div id="pixelatedImage"></div>
+            <div>
             <button id="clearBtn">Clear Saved Image</button>
-        </div>
+            </div>
         
     </div>
 
@@ -129,7 +130,15 @@
             const gridOpacity = parseInt(gridOpacityInput.value) / 100;
             
             // Set canvas dimensions
-            const width = img.width;
+            if (img.width < 299) var width = img.width+675;
+            else if(img.width < 399) var width = img.width+575;
+            else if(img.width < 499) var width = img.width+475;
+            else if(img.width < 599) var width = img.width+375;
+            else if(img.width < 699) var width = img.width+275;
+            else if(img.width < 799) var width = img.width+175;
+            else if(img.width < 899) var width = img.width+75;
+            else var width = img.width;
+            
             const height = img.height;
             canvas.width = width;
             canvas.height = height;
@@ -178,6 +187,7 @@
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
                 checkbox.id = `row-${y}`;
+                //ide kéne valami onchange
                 
                 const label = document.createElement('label');
                 label.htmlFor = `row-${y}`;
@@ -220,9 +230,16 @@
             };
         }
 
-        /*function checkedBox() {
-            for (let i = 0; i < )
-        }*/
+        function checkedBox() { //nem csinál semmit
+            const pixelSize = parseInt(pixelSizeInput.value);
+            const height = img.height;
+            const rows = Math.ceil(height / pixelSize);
+            for (let i = 0; i < rows; i++) {
+                if (`row-${y}`.checked == true) {
+                    console.log(igen);
+                }
+            }
+        }
 
         document.getElementById('clearBtn').addEventListener('click', function() {
             // For localStorage version:

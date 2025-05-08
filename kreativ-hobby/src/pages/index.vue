@@ -8,10 +8,7 @@
 
         <section class="features">
             <h2>Why Choose Us?</h2>
-            <div class="feature" v-for="feature in features" :key="feature.title">
-                <h3>{{ feature.title }}</h3>
-                <p>{{ feature.description }}</p>
-            </div>
+
         </section>
 
         <footer class="footer">
@@ -21,22 +18,7 @@
 </template>
 
 <script setup>
-export default {
-    data() {
-        return {
-            features: [
-                { title: "High-Quality Products", description: "We offer the best materials for your creative needs." },
-                { title: "Affordable Prices", description: "Get the best value for your money." },
-                { title: "Fast Shipping", description: "Receive your orders quickly and reliably." },
-            ],
-        };
-    },
-    methods: {
-        exploreProducts() {
-            this.$router.push('/products');
-        },
-    },
-};
+
 </script>
 
 <style scoped>

@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "title": "Welcome to Our Webshop!",
+      "author": "Admin",
+      "date": "2025-05-01",
+      "excerpt": "We're excited to launch our new online store! Here's what you can expect...",
+      "content": "We're excited to launch our new online store! Expect great deals, fast shipping, and new products every week."
+    },
+    {
+      "id": 2,
+      "title": "5 Must-Have Items for Summer",
+      "author": "Jane Doe",
+      "date": "2025-05-04",
+      "excerpt": "Summer's almost here! Check out these hot picks to keep you cool and stylish.",
+      "content": "1. Red T-Shirt\n2. Green Sneakers\n3. Lightweight shorts\n4. Sunglasses\n5. Reusable water bottle"
+    }
+  ]
+  

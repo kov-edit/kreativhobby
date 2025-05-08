@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "name": "Red T-Shirt",
+      "image": "images/red-tshirt.jpg",
+      "color": "Red",
+      "price": 19.99,
+      "quantity": 100,
+      "tags": ["clothing", "summer", "casual"]
+    },
+    {
+      "id": 2,
+      "name": "Blue Hoodie",
+      "image": "images/blue-hoodie.jpg",
+      "color": "Blue",
+      "price": 39.99,
+      "quantity": 50,
+      "tags": ["clothing", "winter", "hoodie"]
+    },
+    {
+      "id": 3,
+      "name": "Green Sneakers",
+      "image": "images/green-sneakers.jpg",
+      "color": "Green",
+      "price": 59.99,
+      "quantity": 25,
+      "tags": ["shoes", "casual", "sport"]
+    }
+  ]
+  

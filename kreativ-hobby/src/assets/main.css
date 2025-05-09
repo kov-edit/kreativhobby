@@ -1,3 +1,16 @@
 /*@import './base.css';*/
+
+body {
+  background-color: rgb(244, 243, 233);
+}
+
+.footer {
+    background-color: #815b44;
+    color: white;
+    padding: 20px 0;
+    margin-top: 40px;
+    text-align: center;
+}
+
 @import 'bootstrap/dist/css/bootstrap.min.css';
 

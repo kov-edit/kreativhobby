@@ -1,5 +1,6 @@
 <template>
   <header class="p-4 bg-gray-100">
+    <meta charset="UTF-8">
     <nav class="flex gap-4">
       <router-link to="/" class="text-blue-600 hover:underline">Home</router-link>
       <router-link to="/blog" class="text-blue-600 hover:underline">Blog</router-link>

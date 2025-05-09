@@ -5,6 +5,74 @@
       "author": "Admin",
       "date": "2025-05-01",
       "excerpt": "We're excited to launch our new online store! Here's what you can expect...",
+      "content": "We're excited to launch our new online store! Expect great deals, fast shipping, and new products every week.",
+      "comments": [
+    {
+      "author": "Jane Doe",
+      "date": "2023-05-15",
+      "text": "This was really helpful, thanks for writing!"
+    },
+    {
+      "author": "John Smith",
+      "date": "2023-05-16",
+      "text": "I have a question about the second point you made..."
+    }
+  ]
+    },
+    {
+      "id": 2,
+      "title": "5 Must-Have Items for Summer",
+      "author": "Jane Doe",
+      "date": "2025-05-04",
+      "excerpt": "Summer's almost here! Check out these hot picks to keep you cool and stylish.",
+      "content": "1. Red T-Shirt\n2. Green Sneakers\n3. Lightweight shorts\n4. Sunglasses\n5. Reusable water bottle",
+      "comments": [
+    {
+      "author": "Jane Doe",
+      "date": "2023-05-15",
+      "text": "This was really helpful, thanks for writing!"
+    },
+    {
+      "author": "John Smith",
+      "date": "2023-05-16",
+      "text": "I have a question about the second point you made..."
+    }
+  ]
+    },
+        {
+      "id": 1,
+      "title": "Welcome to Our Webshop!",
+      "author": "Admin",
+      "date": "2025-05-01",
+      "excerpt": "We're excited to launch our new online store! Here's what you can expect...",
+      "content": "We're excited to launch our new online store! Expect great deals, fast shipping, and new products every week.",
+      "comments": [
+    {
+      "author": "Jane Doe",
+      "date": "2023-05-15",
+      "text": "This was really helpful, thanks for writing!"
+    },
+    {
+      "author": "John Smith",
+      "date": "2023-05-16",
+      "text": "I have a question about the second point you made..."
+    }
+  ]
+    },
+    {
+      "id": 2,
+      "title": "5 Must-Have Items for Summer",
+      "author": "Jane Doe",
+      "date": "2025-05-04",
+      "excerpt": "Summer's almost here! Check out these hot picks to keep you cool and stylish.",
+      "content": "1. Red T-Shirt\n2. Green Sneakers\n3. Lightweight shorts\n4. Sunglasses\n5. Reusable water bottle"
+    },
+        {
+      "id": 1,
+      "title": "Welcome to Our Webshop!",
+      "author": "Admin",
+      "date": "2025-05-01",
+      "excerpt": "We're excited to launch our new online store! Here's what you can expect...",
       "content": "We're excited to launch our new online store! Expect great deals, fast shipping, and new products every week."
     },
     {

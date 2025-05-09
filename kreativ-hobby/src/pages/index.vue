@@ -10,10 +10,6 @@
             <h2>Why Choose Us?</h2>
 
         </section>
-
-        <footer class="footer">
-            <p>&copy; 2023 Kreativ Hobby. All rights reserved.</p>
-        </footer>
     </div>
 </template>
 

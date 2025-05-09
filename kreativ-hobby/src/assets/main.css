@@ -4,6 +4,47 @@ body {
   background-color: rgb(244, 243, 233);
 }
 
+nav {
+  display: block;
+  float: right;
+  margin: 1em;
+  margin-top: 2.4em;
+  font-size: 11px;
+  width: 100%;
+}
+
+.navbar a {
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #373449;
+  float: right;
+}
+.navbar a:hover {
+    background: #CE8C91;
+    padding: 10px;
+    border-radius: 25px;
+    transition: all .5s ease;
+  }
+
+
+.navbar a:first-child {
+  background: #373449;
+  color: #CE8C91;
+  padding: 10px;
+  border-radius: 25px;
+  float: right;
+}
+.navbar a:first-child:hover {
+    color: #373449;
+    background: #CE8C91;
+    transition: all .5s ease;
+  }
+
+
 .footer {
     background-color: #815b44;
     color: white;

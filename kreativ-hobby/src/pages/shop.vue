@@ -151,6 +151,7 @@ function viewCart() {
 
 .product-card {
   border: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
   border-radius: 8px;
   overflow: hidden;
   display: flex;

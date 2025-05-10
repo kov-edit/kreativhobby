@@ -1,87 +1,100 @@
 [
     {
       "id": 1,
-      "title": "Welcome to Our Webshop!",
+      "title": "How to Choose the Perfect Candle Wax: A Beginner’s Guide",
       "author": "Admin",
       "date": "2025-05-01",
-      "excerpt": "We're excited to launch our new online store! Here's what you can expect...",
-      "content": "We're excited to launch our new online store! Expect great deals, fast shipping, and new products every week.",
+      "excerpt": "With so many candle wax options available, how do you know which one is right for your DIY candle project? This guide breaks down the pros and cons of different wax types so you can create beautiful, fragrant candles every time.",
+      "content": "Types of Candle Wax:\n1. Soy Wax\n\t● Pros: Natural, clean burn, excellent scent throw\n\t● Cons: Can frost (natural but some find it unappealing)\n\t● Best for: Container candles, beginners\n2. Beeswax\n\t● Pros: Natural honey scent, long burn time\n\t● Cons: Expensive, harder to work with\n\t● Best for: Pillars, natural home decor\n3. Paraffin Wax\n\t● Pros: Holds color/fragrance well, affordable\n\t● Cons: Petroleum-based, sooty burn\n\t● Best for: Detailed molded candles\n4. Coconut Wax\n\t● Pros: Luxurious, excellent scent throw\n\t● Cons: Pricier, softer consistency\n\t● Best for: Luxury container candles\nPro Tip: For beginners, we recommend starting with soy wax - it's user-friendly and available in easy-to-melt flakes!",
       "comments": [
-    {
-      "author": "Jane Doe",
-      "date": "2023-05-15",
-      "text": "This was really helpful, thanks for writing!"
-    },
-    {
-      "author": "John Smith",
-      "date": "2023-05-16",
-      "text": "I have a question about the second point you made..."
-    }
-  ]
+        {
+          "author": "Jane Doe",
+          "date": "2023-05-15",
+          "text":  "Which wax would you recommend for making shaped candles like stars or hearts?"
+        },
+        {
+          "author": "John Smith",
+          "date": "2023-05-16",
+          "text": "I didn't know about the frosting issue with soy wax! Is there any way to prevent it?"
+        }
+      ]
     },
     {
       "id": 2,
-      "title": "5 Must-Have Items for Summer",
+      "title": "5 Beginner-Friendly Crochet Projects to Try Today",
       "author": "Jane Doe",
-      "date": "2025-05-04",
-      "excerpt": "Summer's almost here! Check out these hot picks to keep you cool and stylish.",
-      "content": "1. Red T-Shirt\n2. Green Sneakers\n3. Lightweight shorts\n4. Sunglasses\n5. Reusable water bottle",
+      "date": "2025-05-02",
+      "excerpt": "Are you new to crochet and unsure where to start? Don’t worry—we’ve got you covered! Here are five simple yet rewarding projects perfect for beginners, all made with supplies available in our shop.",
+      "content": "Projects:\n\t● Cozy Granny Square Blanket (Great for practicing basic stitches)\n\t● Easy Chunky Scarf (Uses bulky yarn for quick results)\n\t● Simple Market Tote (Perfect for practicing increases & durability)\n\t● Quick & Cute Scrunchies (Ideal for leftover yarn)\n\t● Basic Dishcloth (Great for learning texture stitches)\nPick up soft, beginner-friendly yarn and ergonomic crochet hooks from our shop, and start stitching today!",
       "comments": [
-    {
-      "author": "Jane Doe",
-      "date": "2023-05-15",
-      "text": "This was really helpful, thanks for writing!"
-    },
-    {
-      "author": "John Smith",
-      "date": "2023-05-16",
-      "text": "I have a question about the second point you made..."
-    }
-  ]
+        {
+          "author": "Jane Doe",
+          "date": "2023-05-15",
+          "text": "I've been using kitchen scissors - no wonder my roses keep dying quickly!"
+        }
+      ]
     },
         {
-      "id": 1,
-      "title": "Welcome to Our Webshop!",
+      "id": 3,
+      "title": "How to Arrange Flowers Like a Pro: Essential Tools & Techniques",
       "author": "Admin",
-      "date": "2025-05-01",
-      "excerpt": "We're excited to launch our new online store! Here's what you can expect...",
-      "content": "We're excited to launch our new online store! Expect great deals, fast shipping, and new products every week.",
+      "date": "2025-05-03",
+      "excerpt": "Flower arranging doesn’t have to be intimidating! With the right tools and a few simple techniques, you can create stunning bouquets at home.",
+      "content": "Must-Have Supplies:\n\t● Floral foam (for structured arrangements)\n\t● Sharp hobby pliers (for trimming stems and wires)\n\t● Waterproof tape (to secure designs)\n\t● Decorative vases & ribbons\nSimple Arrangement Styles:\n\t● Classic Round Bouquet (Great for beginners)\n\t● Modern Linear Design (Perfect for centerpieces)\n\t● Wildflower Garden Style (Effortlessly chic)\nVisit our shop for high-quality floral tools and accessories to bring your floral visions to life!",
       "comments": [
-    {
-      "author": "Jane Doe",
-      "date": "2023-05-15",
-      "text": "This was really helpful, thanks for writing!"
+        {
+          "author": "Jane Doe",
+          "date": "2023-05-15",
+          "text": "I've been using kitchen scissors - no wonder my roses keep dying quickly!"
+        }
+      ]
     },
     {
-      "author": "John Smith",
-      "date": "2023-05-16",
-      "text": "I have a question about the second point you made..."
-    }
-  ]
-    },
-    {
-      "id": 2,
-      "title": "5 Must-Have Items for Summer",
+      "id": 4,
+      "title": "The Ultimate Guide to Choosing Yarn for Your Next Knitting or Crochet Project",
       "author": "Jane Doe",
       "date": "2025-05-04",
-      "excerpt": "Summer's almost here! Check out these hot picks to keep you cool and stylish.",
-      "content": "1. Red T-Shirt\n2. Green Sneakers\n3. Lightweight shorts\n4. Sunglasses\n5. Reusable water bottle"
+      "excerpt": "Choosing the right yarn can make or break your knitting or crochet project. With so many fibers, weights, and textures available, it’s easy to feel overwhelmed. This guide will help you pick the perfect yarn every time.",
+      "content": "Understanding Yarn Fibers\nDifferent fibers have unique properties that affect drape, warmth, and durability:\n\t● Wool: Warm, elastic, and great for winter wear. (Try merino for softness!)\n\t● Cotton: Breathable and sturdy, ideal for dishcloths and summer tops.\n\t● Acrylic: Budget-friendly, easy-care, and great for beginners.\n\t● Alpaca: Luxuriously soft and lightweight, perfect for scarves.\n\t● Bamboo: Silky and eco-friendly, excellent for drapey garments.\nTexture & Special Yarns\n\t● Variegated/Self-Striping: Adds automatic color interest.\n\t● Chenille: Ultra-soft for plush toys and blankets.\n\t● Tweed/Marl: Adds subtle texture to classic designs.\nPro Tip: Always check the yarn label for recommended needle/hook size and care instructions!\nExplore our curated selection of yarns—from affordable acrylics to luxury fibers—and find your perfect match for your next project!",
+      "comments": [
+        {
+          "author": "Jane Doe",
+          "date": "2023-05-15",
+          "text": "This guide is so helpful! I’ve been sticking to acrylic because I’m a beginner, but now I’m tempted to try alpaca for a scarf. Do you have any brand recommendations?"
+        },
+        {
+          "author": "John Smith",
+          "date": "2023-05-16",
+          "text": "I never realized how much yarn weight matters! I’ve been using worsted for everything, but now I’ll experiment with lace for a summer shawl."
+        },
+        {
+          "author": "John Smith",
+          "date": "2023-05-16",
+          "text": "What’s the best yarn for baby blankets? I want something soft but washable."
+        }
+      ]
     },
         {
-      "id": 1,
-      "title": "Welcome to Our Webshop!",
+      "id": 5,
+      "title": "Candle Making 101: Step-by-Step Tutorial for Beginners",
       "author": "Admin",
-      "date": "2025-05-01",
-      "excerpt": "We're excited to launch our new online store! Here's what you can expect...",
-      "content": "We're excited to launch our new online store! Expect great deals, fast shipping, and new products every week."
-    },
-    {
-      "id": 2,
-      "title": "5 Must-Have Items for Summer",
-      "author": "Jane Doe",
-      "date": "2025-05-04",
-      "excerpt": "Summer's almost here! Check out these hot picks to keep you cool and stylish.",
-      "content": "1. Red T-Shirt\n2. Green Sneakers\n3. Lightweight shorts\n4. Sunglasses\n5. Reusable water bottle"
+      "date": "2025-05-05",
+      "excerpt": "There’s something magical about lighting a candle you made yourself. Whether you want to create personalized gifts or a relaxing ambiance at home, candle making is an addictive (and surprisingly simple) hobby. ",
+      "content": "Supplies You’ll Need\n\t● Wax: Soy (eco-friendly, clean burn) or paraffin (holds scent well).\n\t● Wicks: Pre-tabbed or spooled (size depends on container diameter).\n\t● Fragrance Oils: Use candle-safe scents (typically 6–10% of wax weight).\n\t● Containers: Mason jars, tins, or heat-resistant vessels.\n\t● Tools: Double boiler, thermometer, hobby pliers (for wick placement).\nStep-by-Step Instructions:\n1. Melt the Wax\n\t● Use a double boiler to melt wax flakes slowly (never microwave!). Heat to 185°F (85°C).\n2. Add Fragrance & Color\n\t● Stir in fragrance oil at 170°F (77°C). For color, use dye chips or liquid dyes.\n3. Prepare the Container\n\t● Secure the wick with a dab of hot glue or a wick sticker. Use pliers to center it.\n4. Pour the Wax\n\t● Let the wax cool slightly (to 135°F/57°C) to prevent cracking. Pour slowly.\n5. Let It Set\n\t● Allow 24 hours for the candle to harden. Trim the wick to ¼ inch before burning.\nTroubleshooting Tips:\n\t● Sinkholes? Re-pour a thin layer of wax after the first sets.\n\t● Weak Scent? Increase fragrance oil (but don’t exceed 10%).\n\t● Tunneling? Burn the candle for at least 2 hours on first use.\nReady to dive in? Grab our candle-making starter kit—complete with soy wax, wicks, and premium fragrances—and craft your first candle today!",
+      "comments": [
+        {
+          "author": "Jane Doe",
+          "date": "2023-05-15",
+          "text": "I tried this tutorial and my candle came out perfectly! Any tips for adding dried flowers without them catching fire?"
+        },
+        {
+          "author": "John Smith",
+          "date": "2023-05-16",
+          "text": "What’s the best fragrance oil for a ‘fresh linen’ scent? I want my home to smell clean and cozy."
+
+
+        }
+      ]
     }
   ]
   

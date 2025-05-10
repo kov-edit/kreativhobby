@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="public\20250510_1508_Yarn Logo Design_simple_compose_01jtx4xxymfxetde6vx43e2871.png" type="image/x-icon">
     <title>Kreativ Hobby</title>
   </head>
   <header class="p-4 bg-gray-100">

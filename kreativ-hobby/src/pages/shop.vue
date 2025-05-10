@@ -45,7 +45,13 @@
           <p>Color: {{ product.color }}</p>
           <p id="price">Price: ${{ product.price.toFixed(2) }}</p>
           <p id="tags">Tags: {{ product.tags.join(', ') }}</p>
-          <button @click="addToCart(product)" class="add-cart">Add to Cart</button>
+          <button
+            @click.stop="addToCart(product)"
+            class="add-cart"
+            :disabled="product.quantity <= 0"
+          >
+            {{ product.quantity > 0 ? 'Add to Cart' : 'Out of Stock' }}
+          </button>
         </div>
       </div>
     </div>
@@ -92,7 +98,6 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import productsJson from '@/assets/products.json'
-
 import { init, addToCart } from '@/components/cartFunctions.vue';
 
 init();

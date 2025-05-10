@@ -91,6 +91,7 @@ function submitComment() {
 .blog-container {
   min-height: 100vh;
   padding: 20px;
+  width: 90%;
 }
 
 /* Grid View Styles */

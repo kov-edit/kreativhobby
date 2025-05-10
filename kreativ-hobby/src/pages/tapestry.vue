@@ -5,12 +5,13 @@
     <div class="about">
       <div class="text">
         <p class="textp">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam animi soluta recusandae placeat voluptatem rem itaque accusamus doloribus libero, ab cupiditate! Voluptate eos quae alias assumenda sed suscipit eligendi provident?
+          <b>What this craft is about?</b><br>
+          Tapestry crochet is a distinctive crochet technique that transforms simple stitches into vibrant, patterned fabric by skillfully working with multiple yarn colors. The term "tapestry" refers to the traditional art of creating pictorial designs in woven textiles, and this crochet method beautifully replicates that effect with yarn and hook. Unlike standard colorwork techniques where yarns are changed at row ends, tapestry crochet allows for intricate color patterns to emerge within each row, making it perfect for creating detailed motifs, geometric patterns, and even pictorial scenes.
         </p>
       </div>
       <div class="videos">
-        <p><a href="https://www.w3.org/" target="_blank">Help for your first tapestry project</a></p>
-        <p><a href="https://www.w3.org/" target="_blank">Tips and tricks for tapestry crochet</a></p>
+        <p><a href="https://www.youtube.com/watch?v=qV2HD1Hzz8c" target="_blank">Help for your first tapestry project</a></p>
+        <p><a href="https://www.youtube.com/watch?v=Xwx_wB4QA1U" target="_blank">Tips and tricks for tapestry crochet</a></p>
         <p>Happy crocheting😊</p>
       </div>
     </div>
@@ -244,16 +245,38 @@ function clearSaved() {
 </script>
 
 <style scoped>
+.text {
+  background-color: #efcbb4;
+  text-align: justify;
+  border: 0px solid #f1b288;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+
+.videos {
+  background-color: #efcbb4;
+  text-align: center;
+  border: 0px solid #f1b288;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.videos a {
+  text-decoration: none;
+  color: #160798;
+}
+
 .about {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     padding-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-.body {
+.container {
   font-family: Arial, sans-serif;
-  max-width: 1200px;
+  width: 90%;
   margin: 0 auto;
   padding: 20px;
 }

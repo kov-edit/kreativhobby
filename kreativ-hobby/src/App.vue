@@ -45,7 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+    box-shadow: 0px 0px 0px 4px rgba(255, 160, 204, 0.253);
     cursor: pointer;
     transition-duration: 0.3s;
     overflow: hidden;
@@ -67,7 +67,7 @@
     width: 140px;
     border-radius: 50px;
     transition-duration: 0.3s;
-    background-color: rgb(181, 160, 255);
+    background-color: rgb(180, 100, 115);
     align-items: center;
   }
 

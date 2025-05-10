@@ -1,6 +1,6 @@
 <template>
 
-  <div class="shop">
+
   <div class="h2s">
     <h2>Filter by Tags</h2>
     <h2 style="text-align: center;">Products</h2>
@@ -85,8 +85,8 @@
         </div>
       </div>
     </div>
-
   </div>
+
 </template>
 
 <script setup>
@@ -140,7 +140,7 @@ function clearAllTags() {
 
 onMounted(init)
 
-// Add these new functions
+
 function selectProduct(product) {
   selectedProduct.value = product
 }
@@ -148,6 +148,7 @@ function selectProduct(product) {
 function closeModal() {
   selectedProduct.value = null
 }
+
 
 </script>
 

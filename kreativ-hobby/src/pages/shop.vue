@@ -2,8 +2,8 @@
 
 
   <div class="h2s">
-    <h2>Filter by Tags</h2>
-    <h2 style="text-align: center;">Products</h2>
+    <h2 style="text-align: center;" class="title">Filter by Tags</h2>
+    <h1 style="text-align: center;" class="title">Products</h1>
   </div>
 
 
@@ -153,6 +153,11 @@ function closeModal() {
 </script>
 
 <style scoped>
+.title {
+  text-shadow: #e8cfa6 5px 3px 1px;
+
+}
+
 .shop {
   width: 90%;
   margin: auto;
@@ -163,7 +168,7 @@ function closeModal() {
 }
 
 .h2s {
-  width: 85%;
+  width: 90%;
   margin: auto;
   padding: 10px;
   display: grid;
@@ -225,14 +230,14 @@ function closeModal() {
 }
 
 .tag-filters {
-  /*display: flex;
-  flex-wrap: wrap;*/
+  display: inline-flex;
+  flex-wrap: wrap;
   padding: 10px;
   align-items: center;
   border: 0.5px solid #553939be;
   border-radius: 8px;
   background-color: rgb(242, 228, 195);
-  
+  height: fit-content;
 }
 
 .tag-filters button {

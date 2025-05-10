@@ -356,8 +356,9 @@ function rate() {
 }
 
 .videos a {
-  text-decoration: none;
-  color: #160798;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #2d0b76;
 }
 
 .boxes {

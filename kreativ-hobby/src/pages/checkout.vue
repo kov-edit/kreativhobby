@@ -93,9 +93,10 @@
             @focus="flipCard(false)"
             class="card-input__input"
             placeholder="FULL NAME"
-            @input="cardName = $event.target.value
-                .replace(/[^\p{L} '’-]/gu, '')  // Allow letters, spaces, apostrophes, hyphens
-                .replace(/((?:[^-]*?-){2}[^-]*?)-/g, '$1')" 
+            @input="cardName = ($event.target as HTMLInputElement).value
+                 .replace(/[^\p{L} '’-]/gu, '')  // Allow letters (including accented), spaces, apostrophes, hyphens
+                .replace(/((?:[^-]*?-){2}[^-]*?)-/g, '$1')
+                .toUpperCase()" 
             maxlength="25"
             />
         </div>
@@ -104,13 +105,13 @@
           <div class="card-form__col">
             <label class="card-input__label">Expiration Date</label>
             <div class="card-form__group">
-              <select v-model="cardMonth" class="card-input__input -select">
+              <select v-model="cardMonth" class="card-input__input">
                 <option value="" disabled>Month</option>
                 <option v-for="n in 12" :key="n" :value="n < 10 ? '0' + n : '' + n">
                   {{ n < 10 ? '0' + n : n }}
                 </option>
               </select>
-              <select v-model="cardYear" class="card-input__input -select">
+              <select v-model="cardYear" class="card-input__input">
                 <option value="" disabled>Year</option>
                 <option
                   v-for="n in 12"
@@ -139,14 +140,21 @@
           </div>
         </div>
 
-        <button class="card-form__button">Submit</button>
+        <button @click="submit" class="card-form__button" type="submit">Submit</button>
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div v-if="showOverlay" class="overlay">
+      <div class="overlay-content">
+        <p>{{ overlayMessage }}</p>
+        <button @click="closeOverlay" class="overlay-button">Close</button>
       </div>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
 import { ref, computed, nextTick } from 'vue';
-import { vMaska } from 'maska';
 
 const cardNumber = ref('');
 const cardName = ref('');
@@ -154,6 +162,9 @@ const cardMonth = ref('');
 const cardYear = ref('');
 const cardCvv = ref('');
 const isCardFlipped = ref(false);
+
+const showOverlay = ref(false);
+const overlayMessage = ref('');
 
 const minYear = new Date().getFullYear();
 
@@ -220,6 +231,34 @@ const formatCardNumber = async (event: Event) => {
   if (caretPosition !== null && formatted.length > input.value.length) {
     input.setSelectionRange(caretPosition + 1, caretPosition + 1);
   }
+};
+
+const submit = () => {
+  if (
+    cardNumber.value &&
+    cardName.value.length >= 8 &&
+    cardMonth.value &&
+    cardYear.value &&
+    cardCvv.value
+  ) {
+    overlayMessage.value = 'Card accepted!';
+    showOverlay.value = true;
+
+    // Reset form fields
+    cardNumber.value = '';
+    cardName.value = '';
+    cardMonth.value = '';
+    cardYear.value = '';
+    cardCvv.value = '';
+    isCardFlipped.value = false;
+  } else {
+    overlayMessage.value = 'Please fill all fields correctly.';
+    showOverlay.value = true;
+  }
+};
+
+const closeOverlay = () => {
+  showOverlay.value = false;
 };
 </script>
 
@@ -768,7 +807,7 @@ body {
       box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);
     }
     &.-select {
-      -webkit-appearance: none;
+      
       background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC');
       background-size: 12px;
       background-position: 90% center;
@@ -854,5 +893,45 @@ body {
       box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);
     }
   }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.overlay-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.overlay-button {
+  background: #2364d2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.overlay-button:hover {
+  background: #1a4bb8;
 }
 </style>

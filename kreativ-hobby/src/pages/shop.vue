@@ -1,8 +1,6 @@
 <template>
-  <div class="cart-counter" @click="viewCart">
-    🛒 {{ cartCount }}
-  </div>
 
+  <div class="shop">
   <div class="h2s">
     <h2>Filter by Tags</h2>
     <h2 style="text-align: center;">Products</h2>
@@ -94,7 +92,10 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import productsJson from '@/assets/products.json'
-import router from '@/router'
+
+import { init, addToCart } from '@/components/cartFunctions.vue';
+
+init();
 
 const products = ref([])
 const selectedTags = ref([])
@@ -137,21 +138,7 @@ function clearAllTags() {
   selectedTags.value = []
 }
 
-const cartItems = ref([])
-
-// Load cart from localStorage on component mount
-onMounted(() => {
-  products.value = productsJson
-  const savedCart = localStorage.getItem('cart')
-  if (savedCart) {
-    cartItems.value = JSON.parse(savedCart)
-  }
-})
-
-// Cart count computed property
-const cartCount = computed(() => {
-  return cartItems.value.reduce((acc, item) => acc + item.quantity, 0)
-})
+onMounted(init)
 
 // Add these new functions
 function selectProduct(product) {
@@ -160,35 +147,6 @@ function selectProduct(product) {
 
 function closeModal() {
   selectedProduct.value = null
-}
-
-// Modified addToCart function
-function addToCart(product) {
-  const existingItem = cartItems.value.find(item => item.id === product.id)
-  
-  if (existingItem) {
-    existingItem.quantity++
-  } else {
-    cartItems.value.push({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      quantity: 1
-    })
-  }
-  
-  updateLocalStorage()
-}
-
-// Save to localStorage
-function updateLocalStorage() {
-  localStorage.setItem('cart', JSON.stringify(cartItems.value))
-}
-
-// View cart placeholder
-function viewCart() {
-  router.push('/cart')
 }
 
 </script>

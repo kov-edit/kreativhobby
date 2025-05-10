@@ -1,16 +1,31 @@
-<!--
 <template>
   <router-link to="/cart" class="cart-button">
-    🛒 {{ cartItemCount }}
+    🛒
+    <span v-if="cartCount > 0">{{ cartCount }}</span>
   </router-link>
 </template>
 
 <script setup>
-import { useCart } from '@/components/itemToCart.vue'
+import { computed } from 'vue';
+import { state } from '@/components/cartFunctions.vue';
 
-const { cartItemCount } = useCart()
+// Compute the cart count dynamically
+const cartCount = computed(() => state.cartItems.reduce((acc, item) => acc + item.quantity, 0));
 </script>
--->
-<template>
-  </template>
-  
+
+<style scoped>
+.cart-button {
+  position: relative;
+}
+.cart-button span {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 1px 4px;
+  border-radius: 50%;
+}
+</style>
+

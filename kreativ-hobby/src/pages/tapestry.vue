@@ -1,18 +1,68 @@
 <template>
   <div class="container">
-    <h1>Tapestry crochet pattern generator</h1>
+    <h1 id="title">Tapestry crochet pattern generator</h1>
 
     <div class="about">
-      <div class="text">
+      
+      <div class="text boxes">
+        <div style="
+          position: absolute;
+          top: -15px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: white;
+          padding: 0 10px;
+          color: #e3747e;
+          font-size: 18px;
+        ">✧⧉✧⧉✧</div>
+        
+        <h3 style="color: #99642b; margin-top: 5px; text-align: center;">What is this craf about?</h3>
+        
+        
         <p class="textp">
-          <b>What this craft is about?</b><br>
           Tapestry crochet is a distinctive crochet technique that transforms simple stitches into vibrant, patterned fabric by skillfully working with multiple yarn colors. The term "tapestry" refers to the traditional art of creating pictorial designs in woven textiles, and this crochet method beautifully replicates that effect with yarn and hook. Unlike standard colorwork techniques where yarns are changed at row ends, tapestry crochet allows for intricate color patterns to emerge within each row, making it perfect for creating detailed motifs, geometric patterns, and even pictorial scenes.
         </p>
+        
+        
+        <div style="font-size: 12px; color: #99642b; text-align: center;">━━━━━━◆━━━━━━</div>
       </div>
-      <div class="videos">
-        <p><a href="https://www.youtube.com/watch?v=qV2HD1Hzz8c" target="_blank">Help for your first tapestry project</a></p>
-        <p><a href="https://www.youtube.com/watch?v=Xwx_wB4QA1U" target="_blank">Tips and tricks for tapestry crochet</a></p>
-        <p>Happy crocheting😊</p>
+      
+      <div class="videos boxes">
+        <div style="
+          position: absolute;
+          top: -15px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: white;
+          padding: 0 10px;
+          color: #e3747e;
+          font-size: 18px;
+        ">✧⧉✧⧉✧</div>
+        
+        <h3 style="color: #99642b; margin-top: 5px;">Help for your first tapestry project</h3>
+        
+        <div style="
+          background: #f5e9d9;
+          padding: 10px;
+          margin: 10px 0;
+          border-radius: 5px;
+          font-size: 14px;
+        ">
+          <p><a href="https://www.youtube.com/watch?v=qV2HD1Hzz8c" target="_blank">How to start</a></p>
+          <p><a href="https://www.youtube.com/watch?v=Xwx_wB4QA1U" target="_blank">Tips and tricks for tapestry crochet</a></p>
+        </div>
+        
+        <div style="text-align: left; font-size: 14px;">
+          <p><strong>🧶 Pro Tips:</strong></p>
+          <ul style="padding-left: 20px; margin-top: 5px;">
+            <li>Use <strong>bobby pins</strong> as stitch markers</li>
+            <li>Carry yarn <strong>loosely</strong></li>
+            <li>Try <strong>variegated yarn</strong></li>
+          </ul>
+        </div>
+        
+        <p style="margin-bottom: 0;">Happy crocheting 😊</p>
+        <div style="font-size: 12px; color: #99642b;">━━━━━━◆━━━━━━</div>
       </div>
     </div>
 
@@ -37,13 +87,13 @@
       <div class="sliders">
         <div class="slider-group">
           <label>Pixel Size:</label>
-          <input type="range" min="5" max="40" v-model="pixelSize" @input="updatePixelation" />
+          <input type="range" min="5" max="40" v-model="pixelSize" @input="updatePixelation" id="pixel"/>
           <span>{{ pixelSize }}</span>
         </div>
 
         <div class="slider-group">
           <label>Grid Opacity:</label>
-          <input type="range" min="0" max="60" v-model="gridOpacity" @input="updatePixelation" />
+          <input type="range" min="0" max="60" v-model="gridOpacity" @input="updatePixelation" id="grid"/>
           <span>{{ gridOpacity }}%</span>
         </div>
       </div>
@@ -88,6 +138,35 @@
   </div>
       </div>
     </div>
+
+  <div class="rating-container">
+    <p>How do you like the pattern?</p>
+    <div class="popupContent"></div>
+    <div class="rating">
+    <input type="radio" id="star-5" name="star-radio" value="star-1" @click="rate">
+    <label for="star-5">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+    </label>
+    <input type="radio" id="star-4" name="star-radio" value="star-1" @click="rate">
+    <label for="star-4">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+    </label>
+    <input type="radio" id="star-3" name="star-radio" value="star-1" @click="rate">
+    <label for="star-3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+    </label>
+    <input type="radio" id="star-2" name="star-radio" value="star-1" @click="rate">
+    <label for="star-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+    </label>
+    <input type="radio" id="star-1" name="star-radio" value="star-1" @click="rate">
+    <label for="star-1">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+    </label>
+  </div>
+  </div>
+    
+
   </div>
 </template>
 
@@ -242,15 +321,29 @@ function clearSaved() {
   localStorage.removeItem('pixelatedImage')
   localStorage.removeItem('pixelatorSettings')
 }
+
+function rate() {
+  const popup = document.createElement("p");
+    popup.innerHTML = ('Thank you for your feedback!');
+    popup.style.cssText = "  padding: 20px; background-color: #f24b91;color: white;opacity: 1; transition: opacity 0.6s;margin-bottom: 15px;"
+    document.querySelector(".popupContent").appendChild(popup);
+}
+
 </script>
 
 <style scoped>
+#title {
+  text-shadow: #e8cfa6 5px 3px 1px;
+  font-family: 'Courier New', monospace;
+}
+
 .text {
   background-color: #efcbb4;
   text-align: justify;
   border: 0px solid #f1b288;
   border-radius: 10px;
-  padding: 10px 15px;
+  padding: 10px 25px;
+  box-shadow: 10px 10px 5px rgb(247, 185, 159);
 }
 
 .videos {
@@ -259,11 +352,23 @@ function clearSaved() {
   border: 0px solid #f1b288;
   border-radius: 10px;
   padding: 10px;
+  box-shadow: 10px 10px 5px rgb(247, 185, 159);
 }
 
 .videos a {
-  text-decoration: none;
-  color: #160798;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #2d0b76;
+}
+
+.boxes {
+  background: #fff9f0;
+        padding: 20px;
+        border-radius: 10px;
+        border: 4px dashed #f0b8b8;
+        position: relative;
+        margin: 0 auto;
+        font-family: 'Courier New', monospace;
 }
 
 .about {
@@ -326,7 +431,7 @@ h1 {
 
 button {
   padding: 8px 16px;
-  background-color: #4CAF50;
+  background-color: #b33626;
   color: white;
   border: none;
   border-radius: 4px;
@@ -386,7 +491,7 @@ button:hover {
   align-items: center;
   justify-content: flex-end;
   padding: 10px;
-  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  background: linear-gradient(135deg, #fabbbb, #824242);
   border-radius: 15px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   height: calc(var(--folder-H) * 1.7);
@@ -503,4 +608,104 @@ button:hover {
 .pixel-row {
   transition: opacity 0.3s ease;
 }
+
+
+.rating-container {
+  text-align: center;
+}
+
+.rating {
+  /*display: flex;
+  flex-direction: row-reverse;*/
+  text-align: center;
+  gap: 0.3rem;
+  --stroke: #666;
+  --fill: #ffc73a;
+}
+
+.rating input {
+  appearance: unset;
+}
+
+.rating label {
+  cursor: pointer;
+}
+
+.rating svg {
+  width: 2rem;
+  height: 2rem;
+  overflow: visible;
+  fill: transparent;
+  stroke: var(--stroke);
+  stroke-linejoin: bevel;
+  stroke-dasharray: 12;
+  animation: idle 4s linear infinite;
+  transition: stroke 0.2s, fill 0.5s;
+}
+
+@keyframes idle {
+  from {
+    stroke-dashoffset: 24;
+  }
+}
+
+.rating label:hover svg {
+  stroke: var(--fill);
+}
+
+.rating input:checked ~ label svg {
+  transition: 0s;
+  animation: idle 4s linear infinite, yippee 0.75s backwards;
+  fill: var(--fill);
+  stroke: var(--fill);
+  stroke-opacity: 0;
+  stroke-dasharray: 0;
+  stroke-linejoin: miter;
+  stroke-width: 8px;
+}
+
+@keyframes yippee {
+  0% {
+    transform: scale(1);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30% {
+    transform: scale(0);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30.1% {
+    stroke: var(--fill);
+    stroke-dasharray: 0;
+    stroke-linejoin: miter;
+    stroke-width: 8px;
+  }
+
+  60% {
+    transform: scale(1.2);
+    fill: var(--fill);
+  }
+}
+
+#pixel {
+  accent-color: #ea4124;
+}
+
+#grid {
+  accent-color: #ea4124;
+}
+
 </style>

@@ -3,18 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/images/android-chrome-192x192.png">
     <title>Kreativ Hobby</title>
   </head>
   <header class="p-4 bg-gray-100">
     <nav class="navbar">
-      <CartButton/>
-      <router-link to="/shop" class="text-blue-600 hover:underline">Shop</router-link>
-      <router-link to="/tapestry" class="text-blue-600 hover:underline">Tapestry</router-link>
-      <router-link to="/blog" class="text-blue-600 hover:underline">Blog</router-link>
-      <router-link to="/" class="text-blue-600 hover:underline">Home</router-link>
+        <CartButton/>
+        <router-link to="/shop" class="text-blue-600 hover:underline">Shop</router-link>
+        <router-link to="/tapestry" class="text-blue-600 hover:underline">Tapestry</router-link>
+        <router-link to="/blog" class="text-blue-600 hover:underline">Blog</router-link>
+        <router-link to="/" class="text-blue-600 hover:underline">Home</router-link>
     </nav>
   </header>
-  <router-view />
+  <router-view class="main-content page-container"  />
   <div>
     <button 
     v-if="showButton"

@@ -139,7 +139,9 @@
             </div>
           </div>
         </div>
-
+        <div>
+        <p id="total">Total: {{ cartTotal() }}$</p>  
+        </div>
         <button @click="submit" class="card-form__button" type="submit">Submit</button>
       </div>
     </div>
@@ -155,7 +157,8 @@
 </template>
 <script lang="ts" setup>
 import { ref, computed, nextTick } from 'vue';
-
+import { cartTotal } from '@/components/cartFunctions.vue';
+import { emptyCart } from '@/components/cartFunctions.vue';
 const cardNumber = ref('');
 const cardName = ref('');
 const cardMonth = ref('');
@@ -250,6 +253,7 @@ const submit = () => {
     cardMonth.value = '';
     cardYear.value = '';
     cardCvv.value = '';
+    emptyCart(false); // Clear the cart
     isCardFlipped.value = false;
   } else {
     overlayMessage.value = 'Please fill all fields correctly.';
@@ -933,5 +937,10 @@ body {
 
 .overlay-button:hover {
   background: #1a4bb8;
+}
+#total {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a3b5d;
 }
 </style>

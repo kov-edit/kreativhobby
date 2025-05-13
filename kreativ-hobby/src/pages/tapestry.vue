@@ -53,7 +53,7 @@
         </div>
         
         <div style="text-align: left; font-size: 14px;">
-          <p><strong>🧶 Pro Tips:</strong></p>
+          <p><strong>Pro Tips:</strong></p>
           <ul style="padding-left: 20px; margin-top: 5px;">
             <li>Use <strong>bobby pins</strong> as stitch markers</li>
             <li>Carry yarn <strong>loosely</strong></li>
@@ -334,7 +334,7 @@ function rate() {
 <style scoped>
 #title {
   text-shadow: #e8cfa6 5px 3px 1px;
-  font-family: 'Courier New', monospace;
+  font-family: 'Arial', sans-serif;
 }
 
 .text {
@@ -368,7 +368,8 @@ function rate() {
         border: 4px dashed #f0b8b8;
         position: relative;
         margin: 0 auto;
-        font-family: 'Courier New', monospace;
+          font-family: 'Arial', sans-serif;
+
 }
 
 .about {

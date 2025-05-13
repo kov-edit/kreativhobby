@@ -1,23 +1,28 @@
 <template>
   <div class="cart-page">
     <h2>Your Cart</h2>
-    <div v-if="cartItems.length > 0">
+    <div v-if="cartItems.length > 0" class="cart-container">
+      <div class="cart-items">
       <div v-for="item in cartItems" :key="item.id" class="cart-item">
         <img :src="item.image" :alt="item.name" class="cart-item-image" />
         <div class="cart-item-info">
           <h3>{{ item.name }}</h3>
           <p>Price: ${{ item.price }}</p>
-          <p>Quantity: {{ item.quantity }}
-          <button @click="decreaseFromCart(item.id)">-</button>
-          <button @click="addToCart(item)">+</button>
+          <p>Quantity: 
+          <button @click="decreaseFromCart(item.id)" class="minus">-</button>
+          {{ item.quantity }}
+          <button @click="addToCart(item)" class="plus">+</button>
           </p>
           <p>Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>
-          <button @click="removeFromCart(item.id)">Remove</button>
+          <button @click="removeFromCart(item.id)" class="remove">Remove</button>
         </div>
       </div>
-      <p>Total: ${{ cartTotal }}</p>
-      <button @click="checkout">Checkout</button>
-      <button @click="emptyCart(false)">Empty Cart</button>
+      </div>
+      <div class="cart-summary">
+      <p class="total-price">Total: ${{ cartTotal }}</p>
+      <button @click="checkout" id="checkout">Checkout</button>
+      <button @click="emptyCart(false)" id="emptyCart">Empty Cart</button>
+      </div>
     </div>
     <p v-else>Your cart is currently empty. <br> Browse our shop to find amazing products and add them to your cart. <br> Once you've added items, they'll appear here for checkout!</p>
   </div>
@@ -73,11 +78,12 @@ function checkout() {
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
   margin-bottom: 20px;
-  width: 80%; /* Adjust width for better alignment */
+  width: 90%; /* Adjust width for better alignment */
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f6f6f6;
 }
 
 .cart-item-image {
@@ -98,5 +104,111 @@ button {
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
+}
+
+.cart-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cart-page h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 30px;
+}
+
+.cart-container {
+  display: flex;
+  gap: 180px;
+}
+
+.cart-items {
+  flex: 2;
+}
+
+.cart-summary {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+  background-color: #f6f6f6;
+  text-align: center;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-image {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.cart-item-info {
+  flex: 1;
+  text-align: left;
+}
+
+.plus, .minus {
+  cursor: pointer;
+  background-color: #656565;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.remove {
+  cursor: pointer;
+  background-color: #5f3535;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 18px;
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#checkout {
+  background-color: #439a57;
+  margin-right: 10px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 18px;
+}
+
+#checkout:hover {
+  background-color: #218838;
+}
+
+#emptyCart {
+  background-color: #c24653;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 18px;
+}
+
+#emptyCart:hover {
+  background-color: #c82333;
 }
 </style>

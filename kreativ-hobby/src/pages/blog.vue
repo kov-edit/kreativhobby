@@ -1,8 +1,53 @@
 <template>
   <div class="blog-container">
     <!-- Blog List View -->
-    <div class="header-wrapper">
+    
+    <header class="site-header">
       <h1 id="title">Our Blog</h1>
+      <button @click="showAuthModal = true" class="auth-button">
+        Sign In / Register
+      </button>
+    </header>
+
+
+    <!-- Auth Modal -->
+    <div v-if="showAuthModal" class="auth-modal">
+      <form class="form">
+    <p class="title">Register </p>
+        <span class="close" @click="showAuthModal = false">&times;</span>
+
+    <p class="message">Signup now and get full access to our website. </p>
+        <div class="flex">
+        <label>
+            <input required="" placeholder="" type="text" class="input">
+            <span>Firstname</span>
+        </label>
+
+        <label>
+            <input required="" placeholder="" type="text" class="input">
+            <span>Lastname</span>
+        </label>
+    </div>  
+            
+    <label>
+        <input required="" placeholder="" type="email" class="input">
+        <span>Email</span>
+    </label> 
+        
+    <label>
+        <input required="" placeholder="" type="password" class="input">
+        <span>Password</span>
+    </label>
+    <label>
+        <input required="" placeholder="" type="password" class="input">
+        <span>Confirm password</span>
+    </label>
+    <button class="submit">Submit</button>
+    <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
+</form>
+      
+    </div>
+
       <div class="chat-controls">
         <button class="chat-button" @click="toggleChat">
           {{ showChat ? 'Close Chat' : 'Do you need help?' }}
@@ -40,7 +85,6 @@
       </div>
       </div>
 
-    </div> 
 
 
     <div v-if="!selectedPost" class="blog-grid">
@@ -112,6 +156,15 @@ const messages = ref([
   { text: "Try asking about our blog posts or authors.", isUser: false }
 ]);
 
+// Auth modal state
+const showAuthModal = ref(false);
+const activeTab = ref('signin');
+const signInEmail = ref('');
+const signInPassword = ref('');
+const registerName = ref('');
+const registerEmail = ref('');
+const registerPassword = ref('');
+
 
 const toggleChat = () => {
   showChat.value = !showChat.value;
@@ -179,6 +232,137 @@ function submitComment() {
 </script>
 
 <style scoped>
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.title {
+  font-size: 28px;
+  color: rgb(71, 36, 2);
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: rgb(71, 36, 2);
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: rgb(71, 36, 2);
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.message, .signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: rgb(71, 36, 2);
+}
+
+.signin a:hover {
+  text-decoration: underline rgb(71, 36, 2);
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  width: 90%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: green;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  background-color: rgb(100, 51, 3);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+}
+
+.submit:hover {
+  background-color: rgb(71, 36, 2);
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
 .chat-floating-container {
   position: absolute;
   top: 100px; /* Adjust based on your header height */
@@ -424,11 +608,58 @@ function submitComment() {
   width: 17px;
 }
 
-.header-wrapper {
-  text-align: center;
+/* New header styles */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: relative;
   margin-bottom: 20px;
-  position: relative; /* Needed for absolute positioning of children */
 }
+
+.auth-button {
+  padding: 10px 20px;
+  background-color: #7c4c09;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+  background-color: #4c2f06;
+}
+
+/* Auth modal styles */
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+
+
 
 
 
@@ -438,14 +669,18 @@ function submitComment() {
   margin: 0 auto;
 }
 
+body {
+  margin: 0;
+}
+
 .blog-container {
   padding: 20px;
-  width: 90%;
+  /*width: 90%;*/
 }
 
 /* Grid View Styles */
 .blog-grid {
-  max-width: 90%;
+  /*max-width: 90%;*/
   margin: 0 auto;
 }
 
@@ -455,6 +690,9 @@ function submitComment() {
   gap: 30px;
   row-gap: 100px;
   margin-top: 30px;
+  /* Add max-width to constrain content if needed */
+  max-width: 1200px;
+  margin: 30px auto 0;
 }
 
 .post-card {

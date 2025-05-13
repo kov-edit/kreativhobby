@@ -42,8 +42,11 @@ function addToCart(product) {
       image: product.image,
       quantity: 1,
     });
+  };
+  const productItem = state.products.find(item => item.id === product.id);
+  if (productItem) {
+    productItem.quantity--; // Decrement product quantity in the shop
   }
-  product.quantity--;
   updateLocalStorage(); // Save updated cart to localStorage
 }
 
@@ -53,7 +56,6 @@ function decreaseFromCart(productId) {
   if (existingItem) {
     if (existingItem.quantity > 1) {
       existingItem.quantity--; // Decrease quantity if it's greater than 1
-      console.log('Decreased quantity:', existingItem.quantity);
     } else {
       // Remove the item if quantity reaches 0
       const index = state.cartItems.findIndex(item => item.id === productId);

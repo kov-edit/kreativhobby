@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/images/android-chrome-192x192.png">
+    <link rel="icon" href="/public/favicon.ico">
+    <link ref="icon" sizes="192x192" type="image/png" href="/public/images/android-chrome-192x192.png">
+
     <title>Kreativ Hobby</title>
   </head>
-  <header class="p-4 bg-gray-100">
+  <header class="p-4 bg-gray-100 nav-shadow">
     <nav class="navbar">
         <CartButton/>
         <router-link to="/shop" class="text-blue-600 hover:underline">Shop</router-link>
@@ -35,6 +37,10 @@
 </template>
 
 <style scoped>
+  .nav-shadow {
+  box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1);
+  }
+
   .button1 {
     float: right;
     width: 50px;

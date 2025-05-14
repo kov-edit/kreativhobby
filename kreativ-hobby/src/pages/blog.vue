@@ -364,23 +364,21 @@ function submitComment() {
 }
 
 .chat-floating-container {
-  position: absolute;
-  top: 100px; /* Adjust based on your header height */
-  right: 0;
-  z-index: 1000;
+  position: fixed;
+  bottom: 44px; /* Adjust based on your header height */
+  left: 8px;
+  z-index: 100px;
   width: 300px;
 }
 
 .chat-controls {
-  /*display: flex;
+  display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Aligns button and chat to the right 
+  align-items:flex-start; /* Aligns button and chat to the right 
   margin-top: 10px;*/
-  position: fixed;
-  right: 20;
+  position: sticky;
+  right: 20px;
   top: 80px; /* Position below title */
-  float: right;
-
 }
 
 .chat-container {
@@ -391,7 +389,8 @@ function submitComment() {
   display: flex;
   flex-direction: column;
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-   margin-top: 10px; /*Space between button and chat */
+  margin-top: 10px;
+  margin-bottom: 100px; /*Space between button and chat */
 }
 
 #chat {
@@ -422,6 +421,9 @@ function submitComment() {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow:4px 4px 6px rgb(247, 185, 159);
+  position: fixed;
+  bottom:82px;
   /*margin-bottom: 10px;  Space between button and chat */
 }
 
@@ -526,9 +528,10 @@ function submitComment() {
 }
 
 .messages-area {
-  background-color: green;
+  background-color: rgb(170, 150, 124);
   width: 100%;
   height: 210px;
+  align-self: center;
 }
 
 .sender-area {

@@ -34,7 +34,7 @@ function addToCart(product,SelectedQuantity) {
   const existingItem = state.cartItems.find(item => item.id === product.id);
   const productItem = state.products.find(item => item.id === product.id);
   if (existingItem) {
-    if(productItem.quantity - SelectedQuantity >0){
+    if(productItem.quantity - SelectedQuantity >0 && productItem.quantity>0){
       existingItem.quantity+=SelectedQuantity;
       productItem.quantity-= SelectedQuantity;
     }

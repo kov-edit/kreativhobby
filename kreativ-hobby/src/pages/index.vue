@@ -1,16 +1,37 @@
 <template>
-    <div class="landing-page">
-        <header class="header">
-            <h1>Welcome to Kreativ Hobby</h1>
-            <p>Unleash your creativity with our amazing products!</p>
-            <button @click="exploreProducts">Explore Products</button>
-        </header>
-
-        <section class="features">
-            <h2>Why Choose Us?</h2>
-
-        </section>
-    </div>
+<swiper
+    :spaceBetween="30"
+    :centeredSlides="true"
+    :autoplay="{
+      delay: 2500,
+      disableOnInteraction: false,
+    }"
+    :pagination="{
+      clickable: true,
+    }"
+    :navigation="true"
+    :modules="modules"
+    @autoplayTimeLeft="onAutoplayTimeLeft"
+    class="mySwiper"
+  >
+    <swiper-slide>Slide 1</swiper-slide>
+    <swiper-slide>Slide 2</swiper-slide>
+    <swiper-slide>Slide 3</swiper-slide>
+    <swiper-slide>Slide 4</swiper-slide>
+    <swiper-slide>Slide 5</swiper-slide>
+    <swiper-slide>Slide 6</swiper-slide>
+    <swiper-slide>Slide 7</swiper-slide>
+    <swiper-slide>Slide 8</swiper-slide>
+    <swiper-slide>Slide 9</swiper-slide>
+    <template #container-end>
+      <div class="autoplay-progress">
+        <svg viewBox="0 0 48 48" ref="progressCircle">
+          <circle cx="24" cy="24" r="20"></circle>
+        </svg>
+        <span ref="progressContent"></span>
+      </div>
+    </template>
+  </swiper>
 </template>
 
 <script setup>
@@ -18,63 +39,74 @@
 </script>
 
 <style scoped>
-.landing-page {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
+#app {
+  height: 100%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
 }
 
-.header {
-    background-color: #f8f9fa;
-    padding: 50px 20px;
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
 }
 
-.header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+.swiper {
+  width: 100%;
+  height: 100%;
 }
 
-.header p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.header button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.header button:hover {
-    background-color: #0056b3;
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--swiper-theme-color);
 }
 
-.features {
-    margin: 40px 0;
-}
-
-.features h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.feature {
-    margin-bottom: 20px;
-}
-
-.feature h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.footer {
-    background-color: #343a40;
-    color: white;
-    padding: 20px 0;
-    margin-top: 40px;
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: var(--swiper-theme-color);
+  fill: none;
+  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
 }
 </style>

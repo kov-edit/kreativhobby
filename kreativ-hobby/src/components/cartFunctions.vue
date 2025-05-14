@@ -32,8 +32,16 @@ function getCartCount() {
 // Add a product to the cart
 function addToCart(product,SelectedQuantity) {
   const existingItem = state.cartItems.find(item => item.id === product.id);
+  const productItem = state.products.find(item => item.id === product.id);
   if (existingItem) {
-    existingItem.quantity+=SelectedQuantity; // Increment quantity if product already exists
+    if(productItem.quantity - SelectedQuantity >0){
+      existingItem.quantity+=SelectedQuantity;
+      productItem.quantity-= SelectedQuantity;
+    }
+    else if(productItem.quantity - SelectedQuantity<=0 && productItem.quantity>0){
+      existingItem.quantity+=productItem.quantity;
+      productItem.quantity-= product.quantity;
+    }
   } else {
     state.cartItems.push({
       id: product.id,
@@ -42,11 +50,10 @@ function addToCart(product,SelectedQuantity) {
       image: product.image,
       quantity: SelectedQuantity,
     });
+    if(productItem.quantity>0){productItem.quantity-= SelectedQuantity;}
+    
   };
-  const productItem = state.products.find(item => item.id === product.id);
-  if (productItem) {
-    productItem.quantity-= SelectedQuantity; // Decrement product quantity in the shop
-  }
+  
   updateLocalStorage(); // Save updated cart to localStorage
 }
 

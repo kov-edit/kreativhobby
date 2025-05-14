@@ -46,7 +46,7 @@
           <p id="price">Price: ${{ product.price.toFixed(2) }}</p>
           <p id="tags">Tags: {{ product.tags.join(', ') }}</p>
           <button
-            @click.stop="addToCart(product)"
+            @click.stop="addToCart(product, 1)"
             class="add-cart"
             :disabled="product.quantity <= 0"
           >
@@ -88,10 +88,11 @@
           <div>
             <button
               class="button2"
+              id="jobb"
               type="button" 
               @click="decrementQuantity"
               :disabled="selectedQuantity <= 1"
-              >-</button>
+              > - </button>
             <input 
               type="number" 
               :min="1"
@@ -102,10 +103,10 @@
             >
             <button
               class="button2"
+              id="bal"
               type="button" 
               @click="incrementQuantity"
-              :disabled="selectedQuantity >= selectedProduct.quantity"
-            >+</button>
+              :disabled="selectedQuantity >= selectedProduct.quantity">+</button>
           </div>
           <button 
             @click.stop="addToCart(selectedProduct, selectedQuantity)" 
@@ -180,29 +181,32 @@ function closeModal() {
 // Add to your existing script
 const selectedQuantity = ref(1)
 
+// Update the validateQuantity function
+function validateQuantity() {
+  const max = selectedProduct.value?.quantity || 1;
+  // Reset to 1 if invalid value
+  if (isNaN(selectedQuantity.value) || selectedQuantity.value < 1) {
+    selectedQuantity.value = 1;
+  }
+  // Enforce maximum stock limit
+  else if (selectedQuantity.value > max) {
+    selectedQuantity.value = max;
+  }
+}
+
 function incrementQuantity() {
-  if (selectedQuantity.value < selectedProduct.value.quantity) {
-    selectedQuantity.value++
+  const max = selectedProduct.value?.quantity || 1;
+  if (selectedQuantity.value < max) {
+    selectedQuantity.value = Math.min(selectedQuantity.value + 1, max);
   }
 }
 
 function decrementQuantity() {
   if (selectedQuantity.value > 1) {
-    selectedQuantity.value--
+    selectedQuantity.value = Math.max(selectedQuantity.value - 1, 1);
   }
 }
 
-function validateQuantity() {
-  // Ensure value is a valid number between 1 and max quantity
-  const max = selectedProduct.value.quantity
-  if (isNaN(selectedQuantity.value) || selectedQuantity.value < 1) {
-    selectedQuantity.value = 1
-  } else if (selectedQuantity.value > max) {
-    selectedQuantity.value = max
-  }
-} 
-
-// Update when product changes
 function selectProduct(product) {
   selectedProduct.value = product
   selectedQuantity.value = 1
@@ -214,26 +218,64 @@ function selectProduct(product) {
 /* Add these styles for the quantity selector */
 /* Add disabled state styling */
 .button2:disabled {
-  opacity: 0.5;
+  opacity: 0.5; 
   cursor: not-allowed;
   background-color: #f0f0f0;
 }
 .number{
+  -moz-appearance: textfield; /* For Firefox */
+  -webkit-appearance: none; /* For Chrome, Safari, Edge */
+  appearance: none; /* For modern browsers */
   width: 60px;
   text-align: center;
   margin: 0 5px;
   padding: 5px;
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   border-radius: 4px;
+}
+
+.number::-webkit-inner-spin-button,
+.number::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Remove spin buttons in WebKit browsers */
+  margin: 0; /* Remove margin */
 }
 
 .button2 {
   padding: 5px 12px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  background-color: #ffffff;
+  border: 1px solid #575656;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+/* Add these styles to enhance button press effect */
+.button2:active:not(:disabled) {
+  transform: scale(0.95);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #d0d0d0;
+  transition: all 0.1s ease;
+}
+
+/* Add these to enhance the existing button2 styles */
+.button2 {
+  /* ... existing styles ... */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Optional: Add depth effect on hover */
+.button2:not(:disabled):hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+#bal{
+  border-radius: 0px 10px 10px 0px;
+}
+#jobb{
+  border-radius: 10px 0px 0px 10px;
+  padding: 5px 14px;
+  font-weight: 700;
 }
 
 .button2:not(:disabled):hover {

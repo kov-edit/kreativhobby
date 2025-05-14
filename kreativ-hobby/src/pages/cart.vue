@@ -11,7 +11,7 @@
           <p>Quantity: 
           <button @click="decreaseFromCart(item.id)" class="minus">-</button>
           {{ item.quantity }}
-          <button @click="addToCart(item)" class="plus">+</button>
+          <button @click="addToCart(item,1), console.log(item)" class="plus">+</button>
           </p>
           <p>Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>
           <button @click="removeFromCart(item.id)" class="remove">Remove</button>

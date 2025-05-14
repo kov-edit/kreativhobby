@@ -31,15 +31,15 @@
     class="mySwiper2"
   >
     <swiper-slide v-for="product in selectedProducts" :key="product.id" class="product-slide">
-        <div class="slide-content">
-          <div class="product-image-container">
-        <img :src="product.image" :alt="product.name" class="product-image">
-          </div>
+      <div class="slide-content">
+        <div class="product-image-container">
+          <img :src="product.image" :alt="product.name" class="product-image">
+        </div>
         <div class="product-info">
-      <h3 class="product-name">{{ product.name }}</h3>
-      <p class="product-price">${{ product.price.toFixed(2) }}</p>
-    </div>
-  </div>
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p class="product-price">${{ product.price.toFixed(2) }}</p>  
+        </div>
+      </div>
   </swiper-slide>
     <template #container-end>
       <div class="autoplay-progress">
@@ -56,10 +56,10 @@
     <div class="box">
 
       <div class="text">
-        <a href="">
+        <router-link to="/tapestry">
           <h3>Tapestry</h3>
           <p>You can make your own patter and set it to your liking.</p>
-        </a>
+        </router-link>
       </div>
 
     </div>
@@ -67,10 +67,10 @@
     <div class="box">
 
       <div class="text">
-        <a href="">
+        <router-link to="/shop">
           <h3>The Yarn</h3>
           <p>We sell the best yarns available, you won't be disappointed.</p>
-        </a>
+        </router-link>
       </div>
 
     </div>
@@ -78,10 +78,10 @@
     <div class="box">
 
       <div class="text">
-        <a href="">
+        <router-link to="/blog">
           <h3>The Blog</h3>
           <p>Become a member of our blog and get the latest news and updates.</p>
-        </a>
+        </router-link>
       </div>
 
     </div>
@@ -199,7 +199,7 @@ onMounted(() => {
   --accent-color: #e74c3c;   /* Keep your red accent */
   --text-color: #333;
   --light-bg: #f9f7fa;
-  --white: #ffffff;
+  --white: #ffffff8f;
 }
 
 body {
@@ -398,6 +398,7 @@ input[type="submit"]:hover {
   margin-bottom: 5px;
   background: var(--secondary-color);
   padding: 20px;
+  
 }
 
 .product-slide {
@@ -431,12 +432,14 @@ input[type="submit"]:hover {
   width: 100%;
   height: 200px;
   object-fit: contain;
+   
 }
 
 .product-info {
   text-align: center;
   margin-top: auto;
   width: 100%;
+
 }
 
 .product-name {
@@ -483,7 +486,7 @@ input[type="submit"]:hover {
 
 .text-content {
   padding: 30px;
-  background: #f8f8f8;
+  background: #f8f8f8cb;
   border-radius: 12px;
 }
 

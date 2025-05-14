@@ -81,8 +81,34 @@
             <span class="detail-label">Tags:</span>
             <span class="detail-value">{{ selectedProduct.tags.join(', ') }}</span>
           </div>
+          <div class="detail-row">
+            <span class="detail-label">Description:</span>
+            <span class="detail-value">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic expedita eligendi tempore quidem laborum</span>
+          </div>
+          <div>
+            <button
+              class="button2"
+              type="button" 
+              @click="decrementQuantity"
+              :disabled="selectedQuantity <= 1"
+              >-</button>
+            <input 
+              type="number" 
+              :min="1"
+              :max="selectedProduct.quantity"
+              class="number"
+              v-model.number="selectedQuantity"
+              @input="validateQuantity"
+            >
+            <button
+              class="button2"
+              type="button" 
+              @click="incrementQuantity"
+              :disabled="selectedQuantity >= selectedProduct.quantity"
+            >+</button>
+          </div>
           <button 
-            @click.stop="addToCart(selectedProduct)" 
+            @click.stop="addToCart(selectedProduct, selectedQuantity)" 
             class="add-cart"
             :disabled="selectedProduct.quantity <= 0"
           >
@@ -146,18 +172,74 @@ function clearAllTags() {
 onMounted(init)
 
 
-function selectProduct(product) {
-  selectedProduct.value = product
-}
 
 function closeModal() {
   selectedProduct.value = null
 }
 
+// Add to your existing script
+const selectedQuantity = ref(1)
+
+function incrementQuantity() {
+  if (selectedQuantity.value < selectedProduct.value.quantity) {
+    selectedQuantity.value++
+  }
+}
+
+function decrementQuantity() {
+  if (selectedQuantity.value > 1) {
+    selectedQuantity.value--
+  }
+}
+
+function validateQuantity() {
+  // Ensure value is a valid number between 1 and max quantity
+  const max = selectedProduct.value.quantity
+  if (isNaN(selectedQuantity.value) || selectedQuantity.value < 1) {
+    selectedQuantity.value = 1
+  } else if (selectedQuantity.value > max) {
+    selectedQuantity.value = max
+  }
+} 
+
+// Update when product changes
+function selectProduct(product) {
+  selectedProduct.value = product
+  selectedQuantity.value = 1
+}
 
 </script>
 
 <style scoped>
+/* Add these styles for the quantity selector */
+/* Add disabled state styling */
+.button2:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f0f0f0;
+}
+.number{
+  width: 60px;
+  text-align: center;
+  margin: 0 5px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.button2 {
+  padding: 5px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button2:not(:disabled):hover {
+  background-color: #e0e0e0;
+}
+
 .title {
   text-shadow: #e8cfa6 5px 3px 1px;
 

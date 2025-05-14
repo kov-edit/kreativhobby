@@ -200,59 +200,157 @@ function checkout() {
 
 <style scoped>
 
+/* Delivery Form Styling */
 .delivery-form {
-  margin: 20px 0;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fff;
+  margin: 25px 0;
+  padding: 25px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .delivery-form h3 {
-  margin-bottom: 15px;
+  margin: 0 0 25px 0;
   color: #2c3e50;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-align: left;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-weight: 500;
+  color: #4a5568;
+  font-size: 0.95rem;
 }
 
 .form-group input {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
+  padding: 10px 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #439a57;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(67, 154, 87, 0.1);
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Validation Styles */
+.form-group input:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #fc8181;
+}
+
+.form-group input:invalid:not(:focus):not(:placeholder-shown) + .error-message {
+  display: block;
+}
+
+/* Button Container */
+.checkout-actions {
+  margin-top: 25px;
+  display: flex;
   gap: 15px;
+  justify-content: space-between;
+}
+
+/* Enhanced Checkout Button */
+#checkout {
+  background-color: #439a57;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex-grow: 1;
+}
+
+#checkout:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(33, 136, 56, 0.2);
+}
+
+#checkout:active {
+  transform: translateY(0);
+}
+
+/* Empty Cart Button */
+#emptyCart {
+  background-color: #c24653;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+#emptyCart:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(200, 35, 51, 0.2);
 }
 
 @media (max-width: 768px) {
+  .delivery-form {
+    padding: 20px;
+  }
+  
   .form-row {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
   
-  .cart-container {
+  .checkout-actions {
     flex-direction: column;
-    gap: 30px;
   }
   
-  .cart-summary {
-    position: static;
+  #checkout,
+  #emptyCart {
+    width: 100%;
   }
 }
 
+/* Matching Existing Cart Style */
+.delivery-form {
+  background-color: #f6f6f6;
+  border-color: #ddd;
+}
+
+.delivery-form h3 {
+  color: #2c3e50;
+  text-shadow: none;
+}
+
+.form-group input {
+  border-color: #cbd5e0;
+}
+
+.form-group input:focus {
+  border-color: #2c3e50;
+}
 /* Add/update these styles */
 .button2 {
   padding: 5px 12px;

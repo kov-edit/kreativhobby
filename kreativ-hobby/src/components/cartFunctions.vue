@@ -97,6 +97,42 @@ function emptyCart(bought) {
 function cartTotal() {
   return state.cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
 }
+
+function updateCartItemQuantity(productId, newQuantity) {
+  const existingItem = state.cartItems.find(item => item.id === productId);
+  const product = state.products.find(item => item.id === productId);
+
+  if (!existingItem || !product) {
+    console.error("Item or product not found.");
+    return;
+  }
+
+  // Validate new quantity
+  if (newQuantity < 1) {
+    // Remove the item if quantity is less than 1
+    state.cartItems = state.cartItems.filter(item => item.id !== productId);
+    product.quantity += existingItem.quantity; // Restore the stock
+  } else {
+    const quantityDifference = newQuantity - existingItem.quantity;
+
+    if (quantityDifference > 0) {
+      // Decrease stock if the new quantity is higher
+      if (product.quantity >= quantityDifference) {
+        product.quantity -= quantityDifference;
+        existingItem.quantity = newQuantity;
+      } else {
+        console.error("Not enough stock available.");
+      }
+    } else if (quantityDifference < 0) {
+      // Increase stock if the new quantity is lower
+      product.quantity += Math.abs(quantityDifference);
+      existingItem.quantity = newQuantity;
+    }
+  }
+
+  updateLocalStorage(); // Save updated cart to localStorage
+}
+
 // Export functions and state for use in other files
 export {
   state, // Export the reactive state
@@ -108,6 +144,7 @@ export {
   updateLocalStorage,
   emptyCart,
   cartTotal,
+  updateCartItemQuantity,
 };
 </script>
 

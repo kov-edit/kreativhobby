@@ -4,7 +4,7 @@
       "name": "Blue yarn",
       "image": "images/blue.jpg",
       "color": "Blue",
-      "price": 19.99,
+      "price": 3.50,
       "quantity": 0,
       "description": "Blue yarn",
       "tags": ["yarn", "knitting", "crochet"]
@@ -14,7 +14,7 @@
       "name": "Pink yarn",
       "image": "images/pink.jpg",
       "color": "Pink",
-      "price": 39.99,
+      "price": 2.50,
       "quantity": 50,
       "description": "Pink yarn",
       "tags": ["yarn", "knitting", "crochet"]
@@ -24,7 +24,7 @@
       "name": "White yarn",
       "image": "images/white.jpg",
       "color": "White",
-      "price": 59.99,
+      "price": 3.50,
       "quantity": 25,
       "description": "White yarn",
       "tags": ["yarn", "knitting", "crochet"]
@@ -34,7 +34,7 @@
       "name": "Red yarn",
       "image": "images/red.jpg",
       "color": "Red",
-      "price": 19.99,
+      "price": 2.50,
       "quantity": 100,
       "description": "Red yarn",
       "tags": ["yarn", "knitting", "crochet"]
@@ -44,7 +44,7 @@
       "name": "Purple yarn",
       "image": "images/purple.jpg",
       "color": "Purple",
-      "price": 39.99,
+      "price": 3.50,
       "quantity": 50,
       "description": "Purple yarn",
       "tags": ["yarn", "knitting", "crochet"]
@@ -54,7 +54,7 @@
       "name": "Crochet hook set",
       "image": "images/crochet.jpg",
       "color": "Multicolor",
-      "price": 59.99,
+      "price": 10.49,
       "quantity": 25,
       "description": "Set of 3 crochet hooks",
       "tags": ["crochet", "set"]
@@ -64,7 +64,7 @@
       "name": "Crochet starter kit",
       "image": "images/crochetset.jpg",
       "color": "Multicolor",
-      "price": 19.99,
+      "price": 12.85,
       "quantity": 100,
       "description": "Set of 6 crochet hooks",
       "tags": ["crochet", "set"]
@@ -74,7 +74,7 @@
       "name": "Knitting set",
       "image": "images/knitting.jpg",
       "color": "Beige",
-      "price": 39.99,
+      "price": 7.60,
       "quantity": 50,
       "description": "Set of 3 knitting needles",
       "tags": ["knitting", "set"]
@@ -84,7 +84,7 @@
       "name": "Candle mold (big bubbles)",
       "image": "images/candle.jpg",
       "color": "White",
-      "price": 59.99,
+      "price": 5.00,
       "quantity": 25,
       "description": "Set of candle mold",
       "tags": ["candle", "mold"]
@@ -94,7 +94,7 @@
       "name": "Candle mold (small bubbles)",
       "image": "images/candle2.jpg",
       "color": "White",
-      "price": 59.99,
+      "price": 4.00,
       "quantity": 25,
       "description": "Set of candle mold",
       "tags": ["candle", "mold"]
@@ -104,7 +104,7 @@
       "name": "Flower oasis",
       "image": "images/floweroasis.jpg",
       "color": "Green",
-      "price": 59.99,
+      "price": 3.59,
       "quantity": 25,
       "description": "Set of flower oasis",
       "tags": ["flower"]
@@ -114,7 +114,7 @@
       "name": "Flower pot",
       "image": "images/flowerpot.jpg",
       "color": "Brown",
-      "price": 59.99,
+      "price": 1.25,
       "quantity": 25,
       "description": "Set of flower pot",
       "tags": ["flower"]
@@ -124,7 +124,7 @@
       "name": "Short pliers",
       "image": "images/pliers2.jpg",
       "color": "Black",
-      "price": 59.99,
+      "price": 6.75,
       "quantity": 25,
       "description": "Set of short pliers",
       "tags": ["tools"]
@@ -134,7 +134,7 @@
       "name": "Long pliers",
       "image": "images/pliers3.jpg",
       "color": "Pink",
-      "price": 59.99,
+      "price": 5.55,
       "quantity": 25,
       "description": "Set of long pliers",
       "tags": ["tools"]

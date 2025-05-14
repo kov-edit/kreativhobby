@@ -16,7 +16,7 @@
           font-size: 18px;
         ">✧⧉✧⧉✧</div>
         
-        <h3 style="color: #99642b; margin-top: 5px; text-align: center;">What is this craf about?</h3>
+        <h3 style="color: #99642b; margin-top: 5px; text-align: center;">What is this craft about?</h3>
         
         
         <p class="textp">
@@ -52,7 +52,7 @@
           <p><a href="https://www.youtube.com/watch?v=Xwx_wB4QA1U" target="_blank">Tips and tricks for tapestry crochet</a></p>
         </div>
         
-        <div style="text-align: left; font-size: 14px;">
+        <div style="text-align: left; font-size: 17px;">
           <p><strong>Pro Tips:</strong></p>
           <ul style="padding-left: 20px; margin-top: 5px;">
             <li>Use <strong>bobby pins</strong> as stitch markers</li>
@@ -334,7 +334,7 @@ function rate() {
 <style scoped>
 #title {
   text-shadow: #e8cfa6 5px 3px 1px;
-  font-family: 'Arial', sans-serif;
+  margin-top: 0px;
 }
 
 .text {
@@ -353,12 +353,14 @@ function rate() {
   border-radius: 10px;
   padding: 10px;
   box-shadow: 10px 10px 5px rgb(247, 185, 159);
+  font-size: 18px;
 }
 
 .videos a {
   font-weight: bold;
   text-decoration: underline;
   color: #2d0b76;
+  font-size: 18px;
 }
 
 .boxes {
@@ -368,7 +370,7 @@ function rate() {
         border: 4px dashed #f0b8b8;
         position: relative;
         margin: 0 auto;
-          font-family: 'Arial', sans-serif;
+          font-size: 18px;
 
 }
 
@@ -381,7 +383,7 @@ function rate() {
 }
 
 .container {
-  font-family: Arial, sans-serif;
+  font-size: 18px;
   width: 90%;
   margin: 0 auto;
   padding: 20px;

@@ -30,17 +30,17 @@ function getCartCount() {
 }
 
 // Add a product to the cart
-function addToCart(product) {
+function addToCart(product,SelectedQuantity) {
   const existingItem = state.cartItems.find(item => item.id === product.id);
   if (existingItem) {
-    existingItem.quantity++; // Increment quantity if product already exists
+    existingItem.quantity+=SelectedQuantity; // Increment quantity if product already exists
   } else {
     state.cartItems.push({
       id: product.id,
       name: product.name,
       price: product.price || 0, // Default to 0 if price is missing
       image: product.image,
-      quantity: 1,
+      quantity: SelectedQuantity,
     });
   };
   const productItem = state.products.find(item => item.id === product.id);

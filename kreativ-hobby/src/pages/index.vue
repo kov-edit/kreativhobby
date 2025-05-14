@@ -3,7 +3,9 @@
     <div class="layout-container">
     <div class="text-content">
       <h2 style="text-align: center;">About Our Page</h2>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta doloremque reprehenderit delectus accusamus consequatur, enim voluptas voluptates cupiditate ipsum obcaecati animi omnis consectetur voluptatibus voluptatum? Molestiae illum sed repudiandae aspernatur? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, nostrum eaque! Unde modi, ullam illo cupiditate recusandae amet commodi nisi voluptas repudiandae exercitationem sed quo neque dignissimos odit quasi et.</p>
+      <p style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta doloremque reprehenderit delectus accusamus consequatur, enim voluptas voluptates cupiditate ipsum obcaecati animi omnis consectetur voluptatibus voluptatum? Molestiae illum sed repudiandae aspernatur? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, nostrum eaque! Unde modi, ullam illo cupiditate recusandae amet commodi nisi voluptas repudiandae exercitationem sed quo neque dignissimos odit quasi et.</p>
+      <router-link to="/shop"><button type="button" id="shopbutton">Jump to the shop >></button></router-link>
+      
     </div>
   <swiper
     :autoplay="{
@@ -192,6 +194,25 @@ onMounted(() => {
 </script>
 
 <style scoped>
+#shopbutton {
+  text-align: center;
+  padding: 15px 25px;
+  font-weight: bold;
+  border: 2px solid rgb(124, 79, 79);
+  border-radius: 5px;
+  background-color: #e3a69f;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+#shopbutton:hover {
+  background-color: #d76a5e;
+  transition: all 0.3s ease;
+  transform: translateY(-10px);
+}
+
+
 /* Add at the top of your style section */
 :root {
   --primary-color: #8e6c88;  /* Elegant muted purple */
@@ -402,7 +423,7 @@ input[type="submit"]:hover {
 }
 
 .product-slide {
-  background: var(--white) !important; /* Override the nth-child colors */
+  /*background-color: rgb(20,20,20) !important;  Override the nth-child colors */
   display: flex !important;
   flex-direction: column;
   align-items: center;
@@ -426,6 +447,7 @@ input[type="submit"]:hover {
   align-items: center;
   height: 100%;
   width: 100%;
+  /**/ 
 }
 
 .product-image {
@@ -467,7 +489,8 @@ input[type="submit"]:hover {
 .swiper-slide:nth-child(8n),
 .swiper-slide:nth-child(9n),
 .swiper-slide:nth-child(10n) {
-  background-color: white !important;
+  /*background-color: rgba(255, 255, 255, 0.785) !important;*/
+  background: #f8f8f8e1;
 }
 
 .layout-container {
@@ -488,6 +511,7 @@ input[type="submit"]:hover {
   padding: 30px;
   background: #f8f8f8cb;
   border-radius: 12px;
+  text-align: center;
 }
 
 .text-content, .box {

@@ -45,7 +45,7 @@ function addToCart(product,SelectedQuantity) {
   };
   const productItem = state.products.find(item => item.id === product.id);
   if (productItem) {
-    productItem.quantity--; // Decrement product quantity in the shop
+    productItem.quantity-= SelectedQuantity; // Decrement product quantity in the shop
   }
   updateLocalStorage(); // Save updated cart to localStorage
 }

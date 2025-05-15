@@ -208,6 +208,7 @@ function checkout() {
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  
 }
 
 .delivery-form h3 {
@@ -233,7 +234,7 @@ function checkout() {
 }
 
 .form-group input {
-  width: 100%;
+  width: 90%;
   padding: 10px 15px;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
@@ -311,6 +312,18 @@ function checkout() {
   background-color: #c82333;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(200, 35, 51, 0.2);
+}
+
+@media (max-width: 768px) {
+  .cart-container {
+    flex-direction: column;
+  }
+  
+  .cart-items,
+  .cart-summary {
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -473,11 +486,13 @@ button {
 
 .cart-container {
   display: flex;
-  gap: 180px;
+  gap: 60px;
+  width: 100%;
 }
 
 .cart-items {
-  flex: 2;
+  flex: 1;
+  min-width: 400px;
 }
 
 .cart-summary {
@@ -490,6 +505,8 @@ button {
   top: 20px;
   background-color: #f6f6f6;
   text-align: center;
+  min-width: 400px; /* Set a minimum width for the form */
+  max-width: 600px; /* Set a maximum width if needed */
 }
 
 .cart-item {

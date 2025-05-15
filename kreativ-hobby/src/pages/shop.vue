@@ -2,7 +2,7 @@
 
 
   <div class="h2s">
-    <h2 style="text-align: center;" class="title">Filter by Tags</h2>
+    <!--<h2 style="text-align: center;" class="title">Filter by Tags</h2>-->
     <h1 style="text-align: center;" class="title">Products</h1>
   </div>
 
@@ -10,7 +10,7 @@
   <div class="shop">
     
     <div class="tag-filters">
-      
+      <h3>Filter by Tags</h3>
       <button
         v-for="tag in allTags"
         :key="tag"
@@ -300,8 +300,8 @@ function selectProduct(product) {
   width: 90%;
   margin: auto;
   padding: 10px;
-  display: grid;
-  grid-template-columns: 1fr 11fr;
+  /*display: grid;
+  grid-template-columns: 1fr 11fr;*/
 }
 
 .products {
@@ -359,46 +359,82 @@ function selectProduct(product) {
 }
 
 .tag-filters {
-  display: inline-flex;
+  /*display: inline-flex;
   flex-wrap: wrap;
   padding: 10px;
   align-items: center;
   border: 0.5px solid #553939be;
   border-radius: 8px;
   background-color: rgb(242, 228, 195);
+  height: fit-content;*/
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #f8f4e9;
   height: fit-content;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .tag-filters button {
-  padding: 8px 15px;
+  /*padding: 8px 15px;
   border: 1px solid #ddd;
   background: white;
   cursor: pointer;
   border-radius: 20px;
   font-size: 0.9em;
   transition: all 0.2s ease;
-  margin-bottom: 20px;
+  margin-bottom: 20px;*/
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 0.95em;
+  transition: all 0.2s ease;
+  margin: 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .tag-filters button:hover {
-  background: #f0f0f0;
+  background: #f5f5f5;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .tag-filters button.active {
   background: #2c3e50;
   color: white;
   border-color: #2c3e50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #clear-all {
-  background-color: #e3747e;
-  color: #56070f;
+  background-color: #f8d7da;
+  color: #721c24;
   border: 1px solid #f5c6cb;
+  margin-top: 10px;
+  transition: all 0.2s ease;
   /*margin-left: 10px;*/
 }
 
 #clear-all:hover {
   background: #f1b0b7;
+  color: #56070f;
+  transform: translateY(-1px);
+}
+
+/* Add a nice heading style */
+.tag-filters h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.2em;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 #tags {

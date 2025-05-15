@@ -18,7 +18,7 @@
             <input 
               type="number"
               :min="1"
-              :max="item.quantity"
+              :max="productStock(item.id)+item.quantity.value"
               class="number"
               v-model.number="item.quantity"
               @input="updateQuantity(item.id, $event.target.value)"
@@ -192,9 +192,6 @@ function checkout() {
   router.push('/checkout');
   // You might want to pass deliveryDetails to a store or backend
 }
-
-
-
 
 </script>
 

@@ -11,10 +11,10 @@
   <header class="p-4 bg-gray-100 nav-shadow">
     <nav class="navbar">
         <CartButton/>
-        <router-link to="/shop" class="text-blue-600 hover:underline">Shop</router-link>
-        <router-link to="/tapestry" class="text-blue-600 hover:underline">Tapestry</router-link>
-        <router-link to="/blog" class="text-blue-600 hover:underline">Blog</router-link>
-        <router-link to="/" class="text-blue-600 hover:underline">Home</router-link>
+        <router-link to="/shop" class="text-blue-600 hover:underline" style="float: left; margin-left:70px; margin-right:10px; text-align: center;">Shop</router-link>
+        <router-link to="/tapestry" class="text-blue-600 hover:underline" style="float: left; margin-right:10px; text-align: center;">Tapestry</router-link>
+        <router-link to="/blog" class="text-blue-600 hover:underline" style="float: left; margin-right:10px; text-align: center;">Blog</router-link>
+        <router-link to="/" class="text-blue-600 hover:underline" style="float: left; text-align: center;">Home</router-link>
     </nav>
   </header>
   <router-view class="main-content page-container"  />
